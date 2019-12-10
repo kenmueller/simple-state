@@ -17,6 +17,13 @@ const State = {
 	decrement: __internal_generateElementId()
 }
 
+const animate = (framesPerSecond, handler) => {
+	const handle = setInterval(
+		() => handler(() => clearInterval(handle)),
+		1000 / framesPerSecond
+	)
+}
+
 const renderToString = elements =>
 	elements.reduce((acc, element) =>
 		`${acc}${
@@ -65,7 +72,6 @@ class __internal_Element {
 	_attributes
 	
 	constructor(name, isVoidElement = false) {
-		this._id = __internal_generateElementId()
 		this._name = name
 		this._isVoidElement = isVoidElement
 		this._children = []
@@ -427,6 +433,9 @@ class __internal_Element {
 	}
 	
 	onAbort = callback => {
+		if (!this._id)
+			this._id = __internal_generateElementId()
+		
 		const callbackName = `__internal_${this._id}_onAbort`
 		
 		window[callbackName] = callback
@@ -436,6 +445,9 @@ class __internal_Element {
 	}
 	
 	onAfterPrint = callback => {
+		if (!this._id)
+			this._id = __internal_generateElementId()
+		
 		const callbackName = `__internal_${this._id}_onAfterPrint`
 		
 		window[callbackName] = callback
@@ -445,6 +457,9 @@ class __internal_Element {
 	}
 	
 	onBeforePrint = callback => {
+		if (!this._id)
+			this._id = __internal_generateElementId()
+		
 		const callbackName = `__internal_${this._id}_onBeforePrint`
 		
 		window[callbackName] = callback
@@ -454,6 +469,9 @@ class __internal_Element {
 	}
 	
 	onBeforeUnload = callback => {
+		if (!this._id)
+			this._id = __internal_generateElementId()
+		
 		const callbackName = `__internal_${this._id}_onBeforeUnload`
 		
 		window[callbackName] = callback
@@ -463,6 +481,9 @@ class __internal_Element {
 	}
 	
 	onBlur = callback => {
+		if (!this._id)
+			this._id = __internal_generateElementId()
+		
 		const callbackName = `__internal_${this._id}_onBlur`
 		
 		window[callbackName] = callback
@@ -472,6 +493,9 @@ class __internal_Element {
 	}
 	
 	onCanPlay = callback => {
+		if (!this._id)
+			this._id = __internal_generateElementId()
+		
 		const callbackName = `__internal_${this._id}_onCanPlay`
 		
 		window[callbackName] = callback
@@ -481,6 +505,9 @@ class __internal_Element {
 	}
 	
 	onCanPlayThrough = callback => {
+		if (!this._id)
+			this._id = __internal_generateElementId()
+		
 		const callbackName = `__internal_${this._id}_onCanPlayThrough`
 		
 		window[callbackName] = callback
@@ -490,6 +517,9 @@ class __internal_Element {
 	}
 	
 	onChange = callback => {
+		if (!this._id)
+			this._id = __internal_generateElementId()
+		
 		const callbackName = `__internal_${this._id}_onChange`
 		
 		window[callbackName] = callback
@@ -499,6 +529,9 @@ class __internal_Element {
 	}
 	
 	onClick = callback => {
+		if (!this._id)
+			this._id = __internal_generateElementId()
+		
 		const callbackName = `__internal_${this._id}_onClick`
 		
 		window[callbackName] = callback
@@ -508,6 +541,9 @@ class __internal_Element {
 	}
 	
 	onContextMenu = callback => {
+		if (!this._id)
+			this._id = __internal_generateElementId()
+		
 		const callbackName = `__internal_${this._id}_onContextMenu`
 		
 		window[callbackName] = callback
@@ -517,6 +553,9 @@ class __internal_Element {
 	}
 	
 	onCopy = callback => {
+		if (!this._id)
+			this._id = __internal_generateElementId()
+		
 		const callbackName = `__internal_${this._id}_onCopy`
 		
 		window[callbackName] = callback
@@ -526,6 +565,9 @@ class __internal_Element {
 	}
 	
 	onCueChange = callback => {
+		if (!this._id)
+			this._id = __internal_generateElementId()
+		
 		const callbackName = `__internal_${this._id}_onCueChange`
 		
 		window[callbackName] = callback
@@ -535,6 +577,9 @@ class __internal_Element {
 	}
 	
 	onCut = callback => {
+		if (!this._id)
+			this._id = __internal_generateElementId()
+		
 		const callbackName = `__internal_${this._id}_onCut`
 		
 		window[callbackName] = callback
@@ -544,6 +589,9 @@ class __internal_Element {
 	}
 	
 	onDoubleClick = callback => {
+		if (!this._id)
+			this._id = __internal_generateElementId()
+		
 		const callbackName = `__internal_${this._id}_onDoubleClick`
 		
 		window[callbackName] = callback
@@ -553,6 +601,9 @@ class __internal_Element {
 	}
 	
 	onDrag = callback => {
+		if (!this._id)
+			this._id = __internal_generateElementId()
+		
 		const callbackName = `__internal_${this._id}_onDrag`
 		
 		window[callbackName] = callback
@@ -562,6 +613,9 @@ class __internal_Element {
 	}
 	
 	onDragEnd = callback => {
+		if (!this._id)
+			this._id = __internal_generateElementId()
+		
 		const callbackName = `__internal_${this._id}_onDragEnd`
 		
 		window[callbackName] = callback
@@ -571,6 +625,9 @@ class __internal_Element {
 	}
 	
 	onDragEnter = callback => {
+		if (!this._id)
+			this._id = __internal_generateElementId()
+		
 		const callbackName = `__internal_${this._id}_onDragEnter`
 		
 		window[callbackName] = callback
@@ -580,6 +637,9 @@ class __internal_Element {
 	}
 	
 	onDragLeave = callback => {
+		if (!this._id)
+			this._id = __internal_generateElementId()
+		
 		const callbackName = `__internal_${this._id}_onDragLeave`
 		
 		window[callbackName] = callback
@@ -589,6 +649,9 @@ class __internal_Element {
 	}
 	
 	onDragOver = callback => {
+		if (!this._id)
+			this._id = __internal_generateElementId()
+		
 		const callbackName = `__internal_${this._id}_onDragOver`
 		
 		window[callbackName] = callback
@@ -598,6 +661,9 @@ class __internal_Element {
 	}
 	
 	onDragStart = callback => {
+		if (!this._id)
+			this._id = __internal_generateElementId()
+		
 		const callbackName = `__internal_${this._id}_onDragStart`
 		
 		window[callbackName] = callback
@@ -607,6 +673,9 @@ class __internal_Element {
 	}
 	
 	onDrop = callback => {
+		if (!this._id)
+			this._id = __internal_generateElementId()
+		
 		const callbackName = `__internal_${this._id}_onDrop`
 		
 		window[callbackName] = callback
@@ -616,6 +685,9 @@ class __internal_Element {
 	}
 	
 	onDurationChange = callback => {
+		if (!this._id)
+			this._id = __internal_generateElementId()
+		
 		const callbackName = `__internal_${this._id}_onDurationChange`
 		
 		window[callbackName] = callback
@@ -625,6 +697,9 @@ class __internal_Element {
 	}
 	
 	onEmptied = callback => {
+		if (!this._id)
+			this._id = __internal_generateElementId()
+		
 		const callbackName = `__internal_${this._id}_onEmptied`
 		
 		window[callbackName] = callback
@@ -634,6 +709,9 @@ class __internal_Element {
 	}
 	
 	onEnded = callback => {
+		if (!this._id)
+			this._id = __internal_generateElementId()
+		
 		const callbackName = `__internal_${this._id}_onEnded`
 		
 		window[callbackName] = callback
@@ -643,6 +721,9 @@ class __internal_Element {
 	}
 	
 	onError = callback => {
+		if (!this._id)
+			this._id = __internal_generateElementId()
+		
 		const callbackName = `__internal_${this._id}_onError`
 		
 		window[callbackName] = callback
@@ -652,6 +733,9 @@ class __internal_Element {
 	}
 	
 	onFocus = callback => {
+		if (!this._id)
+			this._id = __internal_generateElementId()
+		
 		const callbackName = `__internal_${this._id}_onFocus`
 		
 		window[callbackName] = callback
@@ -661,6 +745,9 @@ class __internal_Element {
 	}
 	
 	onHashChange = callback => {
+		if (!this._id)
+			this._id = __internal_generateElementId()
+		
 		const callbackName = `__internal_${this._id}_onHashChange`
 		
 		window[callbackName] = callback
@@ -670,6 +757,9 @@ class __internal_Element {
 	}
 	
 	onInput = callback => {
+		if (!this._id)
+			this._id = __internal_generateElementId()
+		
 		const callbackName = `__internal_${this._id}_onInput`
 		
 		window[callbackName] = callback
@@ -679,6 +769,9 @@ class __internal_Element {
 	}
 	
 	onInvalid = callback => {
+		if (!this._id)
+			this._id = __internal_generateElementId()
+		
 		const callbackName = `__internal_${this._id}_onInvalid`
 		
 		window[callbackName] = callback
@@ -688,6 +781,9 @@ class __internal_Element {
 	}
 	
 	onKeyDown = callback => {
+		if (!this._id)
+			this._id = __internal_generateElementId()
+		
 		const callbackName = `__internal_${this._id}_onKeyDown`
 		
 		window[callbackName] = callback
@@ -697,6 +793,9 @@ class __internal_Element {
 	}
 	
 	onKeyPress = callback => {
+		if (!this._id)
+			this._id = __internal_generateElementId()
+		
 		const callbackName = `__internal_${this._id}_onKeyPress`
 		
 		window[callbackName] = callback
@@ -706,6 +805,9 @@ class __internal_Element {
 	}
 	
 	onKeyUp = callback => {
+		if (!this._id)
+			this._id = __internal_generateElementId()
+		
 		const callbackName = `__internal_${this._id}_onKeyUp`
 		
 		window[callbackName] = callback
@@ -715,6 +817,9 @@ class __internal_Element {
 	}
 	
 	onLoad = callback => {
+		if (!this._id)
+			this._id = __internal_generateElementId()
+		
 		const callbackName = `__internal_${this._id}_onLoad`
 		
 		window[callbackName] = callback
@@ -724,6 +829,9 @@ class __internal_Element {
 	}
 	
 	onLoadedData = callback => {
+		if (!this._id)
+			this._id = __internal_generateElementId()
+		
 		const callbackName = `__internal_${this._id}_onLoadedData`
 		
 		window[callbackName] = callback
@@ -733,6 +841,9 @@ class __internal_Element {
 	}
 	
 	onLoadedMetadata = callback => {
+		if (!this._id)
+			this._id = __internal_generateElementId()
+		
 		const callbackName = `__internal_${this._id}_onLoadedMetadata`
 		
 		window[callbackName] = callback
@@ -742,6 +853,9 @@ class __internal_Element {
 	}
 	
 	onLoadStart = callback => {
+		if (!this._id)
+			this._id = __internal_generateElementId()
+		
 		const callbackName = `__internal_${this._id}_onLoadStart`
 		
 		window[callbackName] = callback
@@ -751,6 +865,9 @@ class __internal_Element {
 	}
 	
 	onMouseDown = callback => {
+		if (!this._id)
+			this._id = __internal_generateElementId()
+		
 		const callbackName = `__internal_${this._id}_onMouseDown`
 		
 		window[callbackName] = callback
@@ -760,6 +877,9 @@ class __internal_Element {
 	}
 	
 	onMouseMove = callback => {
+		if (!this._id)
+			this._id = __internal_generateElementId()
+		
 		const callbackName = `__internal_${this._id}_onMouseMove`
 		
 		window[callbackName] = callback
@@ -769,6 +889,9 @@ class __internal_Element {
 	}
 	
 	onMouseOut = callback => {
+		if (!this._id)
+			this._id = __internal_generateElementId()
+		
 		const callbackName = `__internal_${this._id}_onMouseOut`
 		
 		window[callbackName] = callback
@@ -778,6 +901,9 @@ class __internal_Element {
 	}
 	
 	onMouseOver = callback => {
+		if (!this._id)
+			this._id = __internal_generateElementId()
+		
 		const callbackName = `__internal_${this._id}_onMouseOver`
 		
 		window[callbackName] = callback
@@ -787,6 +913,9 @@ class __internal_Element {
 	}
 	
 	onMouseUp = callback => {
+		if (!this._id)
+			this._id = __internal_generateElementId()
+		
 		const callbackName = `__internal_${this._id}_onMouseUp`
 		
 		window[callbackName] = callback
@@ -796,6 +925,9 @@ class __internal_Element {
 	}
 	
 	onMouseWheel = callback => {
+		if (!this._id)
+			this._id = __internal_generateElementId()
+		
 		const callbackName = `__internal_${this._id}_onMouseWheel`
 		
 		window[callbackName] = callback
@@ -805,6 +937,9 @@ class __internal_Element {
 	}
 	
 	onOffline = callback => {
+		if (!this._id)
+			this._id = __internal_generateElementId()
+		
 		const callbackName = `__internal_${this._id}_onOffline`
 		
 		window[callbackName] = callback
@@ -814,6 +949,9 @@ class __internal_Element {
 	}
 	
 	onOnline = callback => {
+		if (!this._id)
+			this._id = __internal_generateElementId()
+		
 		const callbackName = `__internal_${this._id}_onOnline`
 		
 		window[callbackName] = callback
@@ -823,6 +961,9 @@ class __internal_Element {
 	}
 	
 	onPageShow = callback => {
+		if (!this._id)
+			this._id = __internal_generateElementId()
+		
 		const callbackName = `__internal_${this._id}_onPageShow`
 		
 		window[callbackName] = callback
@@ -832,6 +973,9 @@ class __internal_Element {
 	}
 	
 	onPaste = callback => {
+		if (!this._id)
+			this._id = __internal_generateElementId()
+		
 		const callbackName = `__internal_${this._id}_onPaste`
 		
 		window[callbackName] = callback
@@ -841,6 +985,9 @@ class __internal_Element {
 	}
 	
 	onPause = callback => {
+		if (!this._id)
+			this._id = __internal_generateElementId()
+		
 		const callbackName = `__internal_${this._id}_onPause`
 		
 		window[callbackName] = callback
@@ -850,6 +997,9 @@ class __internal_Element {
 	}
 	
 	onPlay = callback => {
+		if (!this._id)
+			this._id = __internal_generateElementId()
+		
 		const callbackName = `__internal_${this._id}_onPlay`
 		
 		window[callbackName] = callback
@@ -859,6 +1009,9 @@ class __internal_Element {
 	}
 	
 	onPlaying = callback => {
+		if (!this._id)
+			this._id = __internal_generateElementId()
+		
 		const callbackName = `__internal_${this._id}_onPlaying`
 		
 		window[callbackName] = callback
@@ -868,6 +1021,9 @@ class __internal_Element {
 	}
 	
 	onProgress = callback => {
+		if (!this._id)
+			this._id = __internal_generateElementId()
+		
 		const callbackName = `__internal_${this._id}_onProgress`
 		
 		window[callbackName] = callback
@@ -877,6 +1033,9 @@ class __internal_Element {
 	}
 	
 	onRateChange = callback => {
+		if (!this._id)
+			this._id = __internal_generateElementId()
+		
 		const callbackName = `__internal_${this._id}_onRateChange`
 		
 		window[callbackName] = callback
@@ -886,6 +1045,9 @@ class __internal_Element {
 	}
 	
 	onReset = callback => {
+		if (!this._id)
+			this._id = __internal_generateElementId()
+		
 		const callbackName = `__internal_${this._id}_onReset`
 		
 		window[callbackName] = callback
@@ -895,6 +1057,9 @@ class __internal_Element {
 	}
 	
 	onResize = callback => {
+		if (!this._id)
+			this._id = __internal_generateElementId()
+		
 		const callbackName = `__internal_${this._id}_onResize`
 		
 		window[callbackName] = callback
@@ -904,6 +1069,9 @@ class __internal_Element {
 	}
 	
 	onScroll = callback => {
+		if (!this._id)
+			this._id = __internal_generateElementId()
+		
 		const callbackName = `__internal_${this._id}_onScroll`
 		
 		window[callbackName] = callback
@@ -913,6 +1081,9 @@ class __internal_Element {
 	}
 	
 	onSearch = callback => {
+		if (!this._id)
+			this._id = __internal_generateElementId()
+		
 		const callbackName = `__internal_${this._id}_onSearch`
 		
 		window[callbackName] = callback
@@ -922,6 +1093,9 @@ class __internal_Element {
 	}
 	
 	onSeeked = callback => {
+		if (!this._id)
+			this._id = __internal_generateElementId()
+		
 		const callbackName = `__internal_${this._id}_onSeeked`
 		
 		window[callbackName] = callback
@@ -931,6 +1105,9 @@ class __internal_Element {
 	}
 	
 	onSeeking = callback => {
+		if (!this._id)
+			this._id = __internal_generateElementId()
+		
 		const callbackName = `__internal_${this._id}_onSeeking`
 		
 		window[callbackName] = callback
@@ -940,6 +1117,9 @@ class __internal_Element {
 	}
 	
 	onSelect = callback => {
+		if (!this._id)
+			this._id = __internal_generateElementId()
+		
 		const callbackName = `__internal_${this._id}_onSelect`
 		
 		window[callbackName] = callback
@@ -949,6 +1129,9 @@ class __internal_Element {
 	}
 	
 	onStalled = callback => {
+		if (!this._id)
+			this._id = __internal_generateElementId()
+		
 		const callbackName = `__internal_${this._id}_onStalled`
 		
 		window[callbackName] = callback
@@ -958,6 +1141,9 @@ class __internal_Element {
 	}
 	
 	onSubmit = callback => {
+		if (!this._id)
+			this._id = __internal_generateElementId()
+		
 		const callbackName = `__internal_${this._id}_onSubmit`
 		
 		window[callbackName] = callback
@@ -967,6 +1153,9 @@ class __internal_Element {
 	}
 	
 	onSuspend = callback => {
+		if (!this._id)
+			this._id = __internal_generateElementId()
+		
 		const callbackName = `__internal_${this._id}_onSuspend`
 		
 		window[callbackName] = callback
@@ -976,6 +1165,9 @@ class __internal_Element {
 	}
 	
 	onTimeUpdate = callback => {
+		if (!this._id)
+			this._id = __internal_generateElementId()
+		
 		const callbackName = `__internal_${this._id}_onTimeUpdate`
 		
 		window[callbackName] = callback
@@ -985,6 +1177,9 @@ class __internal_Element {
 	}
 	
 	onToggle = callback => {
+		if (!this._id)
+			this._id = __internal_generateElementId()
+		
 		const callbackName = `__internal_${this._id}_onToggle`
 		
 		window[callbackName] = callback
@@ -994,6 +1189,9 @@ class __internal_Element {
 	}
 	
 	onUnload = callback => {
+		if (!this._id)
+			this._id = __internal_generateElementId()
+		
 		const callbackName = `__internal_${this._id}_onUnload`
 		
 		window[callbackName] = callback
@@ -1003,6 +1201,9 @@ class __internal_Element {
 	}
 	
 	onVolumeChange = callback => {
+		if (!this._id)
+			this._id = __internal_generateElementId()
+		
 		const callbackName = `__internal_${this._id}_onVolumeChange`
 		
 		window[callbackName] = callback
@@ -1012,6 +1213,9 @@ class __internal_Element {
 	}
 	
 	onWaiting = callback => {
+		if (!this._id)
+			this._id = __internal_generateElementId()
+		
 		const callbackName = `__internal_${this._id}_onWaiting`
 		
 		window[callbackName] = callback
@@ -1021,6 +1225,9 @@ class __internal_Element {
 	}
 	
 	onWheel = callback => {
+		if (!this._id)
+			this._id = __internal_generateElementId()
+		
 		const callbackName = `__internal_${this._id}_onWheel`
 		
 		window[callbackName] = callback
