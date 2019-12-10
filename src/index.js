@@ -24,8 +24,11 @@ const animate = (framesPerSecond, handler) => {
 	)
 }
 
+const renderIf = (condition, elements) =>
+	condition ? elements : []
+
 const renderToString = elements =>
-	elements.reduce((acc, element) =>
+	[].concat(...elements).reduce((acc, element) =>
 		`${acc}${
 			typeof element === 'string'
 				? element
