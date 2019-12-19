@@ -24,6 +24,24 @@ const animate = (framesPerSecond, handler) => {
 	)
 }
 
+const animateState = async (key, newValue, duration, framesPerSecond = 60) => {
+	const oldValue = state[key]
+	const difference = newValue - oldValue
+	const frames = duration * framesPerSecond
+	const increment = difference / frames
+	const frameDuration = 1000 / framesPerSecond
+	
+	for (let current = oldValue; current < newValue; current += increment)
+		await new Promise(resolve =>
+			setTimeout(() => {
+				state(key, current)
+				resolve()
+			}, frameDuration)
+		)
+	
+	return Promise.resolve()
+}
+
 const renderIf = (condition, elements) =>
 	condition ? elements : []
 
