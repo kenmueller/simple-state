@@ -24,7 +24,7 @@ const animate = (framesPerSecond, handler) => {
 	)
 }
 
-const animateState = async (key, newValue, duration, framesPerSecond = 60) => {
+const __internal_animateState = async (key, newValue, duration, framesPerSecond) => {
 	const oldValue = state[key]
 	const difference = newValue - oldValue
 	const frames = duration * framesPerSecond
@@ -41,6 +41,11 @@ const animateState = async (key, newValue, duration, framesPerSecond = 60) => {
 	
 	return Promise.resolve()
 }
+
+const animateState = async (object, duration, framesPerSecond = 60) =>
+	Promise.all(Object.entries(object).map(([key, value]) =>
+		__internal_animateState(key, value, duration, framesPerSecond)
+	))
 
 const renderIf = (condition, elements) =>
 	condition ? elements : []
